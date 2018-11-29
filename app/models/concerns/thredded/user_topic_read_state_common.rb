@@ -61,7 +61,7 @@ module Thredded
 
       # Calculates and saves the `unread_posts_count` and `read_posts_count` columns.
       def update_post_counts!
-        id_counts = calculate_post_counts_for_users(Thredded.user_class.where(id: distinct.select(:user_id)))
+        id_counts = calculate_post_counts_for_users(Thredded.user_class.where(Thredded.user_id_column => distinct.select(:user_id)))
         transaction do
           id_counts.each do |(id, unread_posts_count, read_posts_count)|
             where(id: id).update_all(unread_posts_count: unread_posts_count, read_posts_count: read_posts_count)

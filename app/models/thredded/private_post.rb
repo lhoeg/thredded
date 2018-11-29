@@ -44,7 +44,7 @@ module Thredded
       if persisted?
         collection_proxy.scope
       else
-        Thredded.user_class.where(id: collection_proxy.to_a.map(&:id))
+        Thredded.user_class.where(Thredded.user_id_column => collection_proxy.to_a.map(&:id))
       end
     end
 

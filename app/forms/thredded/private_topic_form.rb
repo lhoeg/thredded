@@ -77,7 +77,7 @@ module Thredded
     end
 
     def user_names
-      @user_names ||= Thredded.user_class.where(id: user_ids).pluck(Thredded.user_name_column).map do |name|
+      @user_names ||= Thredded.user_class.where(Thredded.user_id_column => user_ids).pluck(Thredded.user_name_column).map do |name|
         if name.include?(',')
           "\"#{name}\""
         else
@@ -98,7 +98,7 @@ module Thredded
     end
 
     def private_users
-      Thredded.user_class.where(id: normalized_user_ids)
+      Thredded.user_class.where(Thredded.user_id_column => normalized_user_ids)
     end
 
     def private_user_ids

@@ -61,6 +61,9 @@ module Thredded # rubocop:disable Metrics/ModuleLength
     # @return [String] The name of the user class
     attr_reader :user_class_name
 
+    # @return [String] The name of the id column on user class
+    attr_accessor :user_id_column
+
     # @return [Symbol] The name of the method used by Thredded controllers and views to get the currently signed-in user
     attr_accessor :current_user_method
 

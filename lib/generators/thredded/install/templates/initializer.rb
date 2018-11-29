@@ -8,6 +8,11 @@
 # for your user class - change it here.
 Thredded.user_class = 'User'
 
+# The name of id column on the user class in your app.
+# By default the engine will use :id but if you have another name
+# for your user id column - change it here.
+Thredded.user_id_column = :id
+
 # User name column, used in @mention syntax and *must* be unique.
 # This is the column used to search for users' names if/when someone is @ mentioned.
 Thredded.user_name_column = :name
