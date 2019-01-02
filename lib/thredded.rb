@@ -254,6 +254,7 @@ module Thredded # rubocop:disable Metrics/ModuleLength
     end
   end
 
+  self.user_id_column = :id
   self.user_name_column = :name
   self.avatar_url = ->(user) { Gravatar.src(user.email, 156, 'mm') }
   self.admin_column = :admin
